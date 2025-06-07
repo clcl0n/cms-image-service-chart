@@ -1,0 +1,8 @@
+apiVersion: v2
+description: ContentProviderRemaster
+name: cms-image-service
+version: 1.0.0
+keywords:
+  - cms
+  - image
+  - service

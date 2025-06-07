@@ -1,0 +1,52 @@
+{
+    "title": "Chart Values Schema",
+    "type": "object",
+    "properties": {
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "namespace": {
+                    "type": "string",
+                    "description": "Namespace where the service will be deployed."
+                }
+            },
+            "required": [
+                "namespace"
+            ]
+        },
+        "spec": {
+            "type": "object",
+            "properties": {
+                "replicas": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "default": 1,
+                    "description": "Number of replicas for the service."
+                },
+                "spec": {
+                    "type": "object",
+                    "properties": {
+                        "spec": {
+                            "type": "object",
+                            "properties": {
+                                "image": {
+                                    "type": "string",
+                                    "description": "Docker image for the service."
+                                }
+                            },
+                            "required": [
+                                "image"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "spec"
+                    ]
+                }
+            },
+            "required": [
+                "replicas"
+            ]
+        }
+    }
+}
