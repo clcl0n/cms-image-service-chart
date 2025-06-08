@@ -5,3 +5,23 @@ spec:
   template:
     spec:
       image: ghcr.io/clcl0n/cms-image-service:latest
+
+configuration:
+  connectionStrings:
+    mongoDb: mongodb://mongo:27017
+  messagingBroker:
+    rabbitMq:
+      hostName: localhost
+      port: 5672
+      userName: rabbitmq
+      password: rabbitmq
+      virtualHost: /
+      ssl:
+        enabled: false
+  externalStorage:
+    s3ObjectStorage:
+      accessKey: test
+      secretKey: test
+      serviceUrl: http://localhost:9000
+      imageBucketName: images
+      forcePathStyle: true

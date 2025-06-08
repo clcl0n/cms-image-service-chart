@@ -47,6 +47,118 @@
             "required": [
                 "replicas"
             ]
+        },
+        "configuration": {
+            "type": "object",
+            "properties": {
+                "connectionStrings": {
+                    "type": "object",
+                    "properties": {
+                        "mongoDb": {
+                            "type": "string",
+                            "description": "MongoDb connection string."
+                        }
+                    },
+                    "required": [
+                        "mongoDb"
+                    ]
+                },
+                "messagingBroker": {
+                    "type": "object",
+                    "properties": {
+                        "rabbitMq": {
+                            "type": "object",
+                            "properties": {
+                                "hostName": {
+                                    "type": "string",
+                                    "description": "RabbitMQ host."
+                                },
+                                "port": {
+                                    "type": "integer",
+                                    "description": "RabbitMQ port."
+                                },
+                                "userName": {
+                                    "type": "string",
+                                    "description": "RabbitMQ username."
+                                },
+                                "password": {
+                                    "type": "string",
+                                    "description": "RabbitMQ password."
+                                },
+                                "virtualHost": {
+                                    "type": "string",
+                                    "description": "RabbitMQ virtual host."
+                                },
+                                "ssl": {
+                                    "type": "object",
+                                    "properties": {
+                                        "enabled": {
+                                            "type": "boolean",
+                                            "description": "Enable SSL for RabbitMQ connection."
+                                        }
+                                    },
+                                    "required": [
+                                        "enabled"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "hostName",
+                                "port",
+                                "userName",
+                                "password",
+                                "virtualHost"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "rabbitMq"
+                    ]
+                },
+                "externalStorage": {
+                    "type": "object",
+                    "properties": {
+                        "s3ObjectStorage": {
+                            "type": "object",
+                            "properties": {
+                                "accessKey": {
+                                    "type": "string",
+                                    "description": "Access key for the S3 compatible storage."
+                                },
+                                "secretKey": {
+                                    "type": "string",
+                                    "description": "Secret key for the S3 compatible storage."
+                                },
+                                "serviceUrl": {
+                                    "type": "string",
+                                    "description": "Service URL for the S3 compatible storage."
+                                },
+                                "imageBucketName": {
+                                    "type": "string",
+                                    "description": "Bucket name for storing images."
+                                },
+                                "forcePathStyle": {
+                                    "type": "boolean",
+                                    "description": "Force path style for S3 URLs."
+                                }
+                            },
+                            "required": [
+                                "accessKey",
+                                "secretKey",
+                                "serviceUrl",
+                                "imageBucketName",
+                                "forcePathStyle"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "s3ObjectStorage"
+                    ]
+                }
+            },
+            "required": [
+                "connectionStrings"
+            ]
         }
     }
 }

@@ -20,3 +20,14 @@ spec:
                   image: {{ .Values.spec.template.spec.image }}
                   ports:
                     - containerPort: 8080
+                  imagePullPolicy: IfNotPresent
+                  volumeMounts:
+                  - mountPath: /App/appsettings.Production.json
+                    name: configuration
+                    subPath: appsettings.Production.json
+            volumes:
+                - name: configuration
+                  configMap:
+                    name: {{ .Release.Name }}
+
+
